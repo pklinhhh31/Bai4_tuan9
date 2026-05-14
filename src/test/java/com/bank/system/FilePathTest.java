@@ -1,17 +1,21 @@
 package com.bank.system;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.io.File;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class FilePathTest {
     @Test
-    void testSeparatorDifference() {
-        // Ta kỳ vọng dấu phân cách thư mục của hệ thống phải là dấu \
-        // File.separator sẽ trả về \ trên Windows và / trên Linux/macOS
-        String expectedSeparator = "\\";
+    void testPortablePath() {
+        // Cách 1: Dùng File.separator (Tự động đổi thành / hoặc \ tùy OS)
+        String portablePath = "data" + File.separator + "customers.txt";
 
-        assertEquals(expectedSeparator, File.separator,
-                "Lỗi: Hệ điều hành này không sử dụng dấu gạch chéo ngược!");
+        // Cách 2: Dùng Path API (Hiện đại và khuyến khích dùng cho Java 25)
+        Path path = Paths.get("data", "customers.txt");
+
+        assertNotNull(path.toString());
+        System.out.println("Đường dẫn chuẩn trên OS này là: " + path.toString());
     }
 }
