@@ -1,18 +1,17 @@
 package com.bank.system;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.File;
 
 public class FilePathTest {
     @Test
-    void testHardcodedPath() {
-        // Cố tình dùng dấu \ của Windows
-        String hardcodedPath = "data\\customers.txt"; 
-        File file = new File(hardcodedPath);
-        
-        // Test này sẽ PASS trên Windows nhưng FAIL trên Linux/macOS
-        // vì Linux coi dấu \ là một phần của tên file chứ không phải phân tách thư mục
-        assertTrue(file.getPath().contains("\\"), "Path should use Windows separator");
+    void testSeparatorDifference() {
+        // Ta kỳ vọng dấu phân cách thư mục của hệ thống phải là dấu \
+        // File.separator sẽ trả về \ trên Windows và / trên Linux/macOS
+        String expectedSeparator = "\\";
+
+        assertEquals(expectedSeparator, File.separator,
+                "Lỗi: Hệ điều hành này không sử dụng dấu gạch chéo ngược!");
     }
 }
