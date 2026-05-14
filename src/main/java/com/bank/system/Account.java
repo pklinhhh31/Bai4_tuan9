@@ -14,7 +14,7 @@ public abstract class Account {
     // Tích hợp Logger cho Observability
     private static final Logger logger = LoggerFactory.getLogger(Account.class);
     // Vi phạm: Đặt tên hằng số không đúng chuẩn (phải là UPPER_SNAKE_CASE)
-    public static final String CHECKING_TYPE = "CHECKING";
+    public static final String CHECKING_TYPE = "CHECKING"
     public static final String SAVINGS_TYPE = "SAVINGS";
 
     // Vi phạm: Tên biến instance bắt đầu bằng dấu gạch dưới hoặc quá ngắn, không rõ nghĩa
