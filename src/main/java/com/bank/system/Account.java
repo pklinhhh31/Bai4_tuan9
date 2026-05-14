@@ -1,7 +1,5 @@
 package com.bank.system;
 
-//import java.util.*; // Vi phạm: Wildcard import (nên import cụ thể List, ArrayList)
-//import java.io.*;   // Vi phạm: Import thừa, không sử dụng
 import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
@@ -13,40 +11,43 @@ import org.slf4j.LoggerFactory;
 public abstract class Account {
     // Tích hợp Logger cho Observability
     private static final Logger logger = LoggerFactory.getLogger(Account.class);
-    // Vi phạm: Đặt tên hằng số không đúng chuẩn (phải là UPPER_SNAKE_CASE)
-    public static final String CHECKING_TYPE = "CHECKING"
+
+    public static final String CHECKING_TYPE = "CHECKING";
     public static final String SAVINGS_TYPE = "SAVINGS";
 
-    // Vi phạm: Tên biến instance bắt đầu bằng dấu gạch dưới hoặc quá ngắn, không rõ nghĩa
     private long accountNum;
     private double balance;
     protected List<Transaction> transactions;
 
-    // Vi phạm: Thụt lề (Indentation) không đồng nhất, không dùng 2 spaces theo chuẩn Google
     public Account(long accountNumber, double balance) {
         this.accountNum = accountNumber;
         this.balance = balance;
         this.transactions = new ArrayList<Transaction>();
     }
 
-    // Vi phạm: Viết hàm trên một dòng, thiếu khoảng trắng giữa các toán tử/ngoặc
+
     public long getAccountNumber() {
+
         return accountNum;
     }
 
     public void setAccountNumber(long accountNumber) {
+
         accountNum = accountNumber;
     }
 
     public double getBalance() {
+
         return balance;
     }
 
     protected void setBalance(double balance) {
+
         this.balance = balance;
     }
 
     public List<Transaction> getTransactionList() {
+
         return transactions;
     }
 
